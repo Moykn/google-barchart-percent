@@ -82,7 +82,7 @@
         	return;
         }
         var options = {
-          title: 'Company Performance',
+          title: 'Company Performance', 
           vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
         };
 
