@@ -68,7 +68,6 @@
 		drawChart();
 	}
 	function drawChart(){
-		console.log("redraw")
         var data = google.visualization.arrayToDataTable([
           ['Year' , 'Test 1', 'Test 2', 'Test3'],
           ['2004',  1000,      400   ,   100],
@@ -79,7 +78,6 @@
           ['2009',  1400,      0     ,     0],
         ]);
         if(chart){
-
         	chart.draw(data);
         	return;
         }
@@ -109,11 +107,13 @@
 					 'hAxis': {
 						 'title': "Teste",
 						 'titleTextStyle': { 'fontSize': 18 }
+					 },
+					 labels:{
+
+
 					 }
 				},
 				containerId: $("#chart_div").get(0)
 			});
         chart.draw(data);
       }
-
-    </script>
