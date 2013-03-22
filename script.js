@@ -80,8 +80,7 @@
           vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
         };
 
-        chart //= new google.visualization.BarChart(document.getElementById('chart_div'));
-			= new google.visualization.ChartWrapper({
+        chart = new google.visualization.ChartWrapper({
 				 chartType: 'BarChart',
 				 dataTable: data,
 				 options: {
