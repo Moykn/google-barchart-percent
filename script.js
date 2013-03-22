@@ -1,11 +1,5 @@
 		function addTextNode(attrs, text, _element) {
             var el= document.createElementNS('http://www.w3.org/2000/svg', "text");
-            
-            var bbox = $(_element).parent().get(0).getBBox()
-            if(attrs.x - bbox.width > 50 ){
-				attrs.x = attrs.x - 60;
-				attrs.fill = "white";
-            }
             for (var k in attrs){
                el.setAttribute(k, attrs[k]);
             }
