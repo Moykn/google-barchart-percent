@@ -43,12 +43,12 @@
 											   if(_value <= 0)
 											   		continue;
 
-										var pos = {
-											x:  (parseFloat($(_el).attr("x")) + parseFloat($(_el).attr("width"))) + 5,
-											y:  parseFloat($(_el).attr("y")) + (parseFloat($(_el).attr("height"))/1.1)										
-										};
+										var opt = $.extend({
+												x:  parseFloat($(_el).attr("x")) + parseFloat($(_el).attr("width")) + 5,
+												y:  parseFloat($(_el).attr("y")) + (parseFloat($(_el).attr("height"))/1.1)
+											},__chart__.getOptions().labelStyle);
 										var __parent__ = $(_el).parent();
-										__parent__.append(addTextNode({x:pos.x, y:pos.y, stroke:'none','font-family':"Segoe UI light", fill:'black', 'font-size':12 }, _value + "%"))
+										__parent__.append(addTextNode(opt, _value + "%"))
 									};
 						};
 	  				};
@@ -69,7 +69,6 @@
 		drawChart();
 	}
 	function drawChart(){
-		console.log("redraw")
         var data = google.visualization.arrayToDataTable([
           ['Year' , 'Test 1', 'Test 2', 'Test3'],
           ['2004',  1000,      400   ,   100],
@@ -80,7 +79,6 @@
           ['2009',  1400,      0     ,     0],
         ]);
         if(chart){
-
         	chart.draw(data);
         	return;
         }
@@ -105,9 +103,10 @@
 						 'title': "Teste",
 						 'titleTextStyle': { 'fontSize': 18 }
 					 },
-					 labels:{
-					 	options:{},
-					 	ready:drawChart
+					 labelStyle:{
+							'font-family':"Segoe UI light", 
+							fill:'black', 
+							'font-size':12
 					 }
 				},
 				containerId: $("#chart_div").get(0)
