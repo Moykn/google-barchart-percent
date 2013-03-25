@@ -1,18 +1,6 @@
-		function addTextNode(attrs, text, _element) {
-            var el= document.createElementNS('http://www.w3.org/2000/svg', "text");
-            for (var k in attrs){
-               el.setAttribute(k, attrs[k]);
-            }
-			var textNode = document.createTextNode(text);
-			el.appendChild(textNode);
-	        return el;
-        }
-
-    var chart;
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(overridesChart);
-	
-      function overridesChart() {
+google._setOnLoadCallback = google.setOnLoadCallback;
+  google.setOnLoadCallback = function(callback){
+  		function __overrides_chart_draw(){
 	      google.visualization.ChartWrapper.prototype._draw = 
 	      	google.visualization.ChartWrapper.prototype.draw; 
 	      		google.visualization.ChartWrapper.prototype.draw = 
@@ -59,54 +47,17 @@
 				};
 			return _total;
 		}
-		drawChart();
+
+		function addTextNode(attrs, text, _element) {
+	        var el= document.createElementNS('http://www.w3.org/2000/svg', "text");
+	        for (var k in attrs){
+	           el.setAttribute(k, attrs[k]);
+	        }
+			var textNode = document.createTextNode(text);
+			el.appendChild(textNode);
+	        return el;
+	    }
+	    callback.call();
 	}
-	function drawChart(){
-        var data = google.visualization.arrayToDataTable([
-          ['Year' , 'Test 1', 'Test 2', 'Test3'],
-          ['2004',  1000,      400   ,   100],
-          ['2005',  1170,      460   ,   200],
-          ['2006',  660,       1120  ,   300],
-          ['2007',  1030,      540   ,   400],
-          ['2008',  1400,      150   ,   500],
-          ['2009',  1400,      0     ,     0],
-        ]);
-        if(chart){
-        	chart.draw(data);
-        	return;
-        }
-        var options = {
-          title: 'Company Performance', 
-          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
-        };
-
-        chart = new google.visualization.ChartWrapper({
-				 chartType: 'BarChart',
-				 dataTable: data,
-				 options: {
-					 'title': "Teste",
-					 'titleTextStyle': { 'fontSize': 18, 'align': 'center' },
-					 'width': 600,
-					 'height': 500,
-					 'legend': { 'position': 'right', 'textStyle': { 'color': 'blue', 'fontSize': 11} },
-					 'chartArea': { 'left': 70, 'height': '70%', 'width': '50%' },
-					 'isStacked': 'false',
-					 'backgroundColor': 'whitesmoke',
-					 'fontSize': '12',
-					 'vAxis': {
-						 'title': 'Chart Title',
-						 'titleTextStyle': { 'fontSize': 18 }
-					 },
-					 'hAxis': {
-						 'title': "Teste",
-						 'titleTextStyle': { 'fontSize': 18 }
-					 },
-					 labels:{
-
-
-					 }
-				},
-				containerId: $("#chart_div").get(0)
-			});
-        chart.draw(data);
-      }
+	    google._setOnLoadCallback(__overrides_chart_draw);
+}
