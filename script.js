@@ -4,8 +4,7 @@ google._setOnLoadCallback = google.setOnLoadCallback;
 	      google.visualization.ChartWrapper.prototype._draw = 
 	      	google.visualization.ChartWrapper.prototype.draw; 
 	      		google.visualization.ChartWrapper.prototype.draw = 
-	  				function(){
-	  					fnpp = this;
+	  				function() {
 	  					var __chart__ = this;
 	  					__chart__._draw(arguments);
 	  					
