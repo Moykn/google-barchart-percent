@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type="text/javascript" src="BarChart.js"></script>
+<script type="text/javascript">
+var chart;
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+
+function drawChart(){
+	// Create and populate the data table.
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Austria', 'Bulgaria', 'Denmark', 'Greece'],
+          ['2003',  1336060,    400361,    1001582,   997974],
+          ['2004',  1538156,    366849,    1119450,   941795],
+          ['2005',  1576579,    440514,    993360,    930593]
+        ]);
+		
+    	var chart = new google.visualization.BarChart($("#chart_div").get(0));
+    	chart.draw(data,
+            {
+              'title':"Yearly Coffee Consumption by Country",
+              'width':600, 
+              'height':400,
+              'vAxis': {title: "Year"},
+              'hAxis': {title: "Cups"}, 	 
+              'labelStyle':{
+					'font-family':"Segoe UI light", 
+					'fill':'black', 
+					'font-size':12
+			 }
+			}
+        );
+	}
+	</script>
+</head>
+<body>
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+	
+	<div id='whoops'>
+	
+	</div>
+	<button type="button" onclick="drawChart()">REDRAW!</button>
+</body>
+</html>
