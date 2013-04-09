@@ -33,13 +33,15 @@
       <section id="main_content" class="inner">
         <h3>Usage</h3>
         <p>Include the Barchart.js or ChartWrapper.js right after google jsapi</p>
-'''html
+```html
+
 &ltscript type="text/javascript" src="//www.google.com/jsapi">&lt/script&gt
 &ltscript type="text/javascript" src="BarChart.js"&gt&lt/script&gt
-'''
+
+```
 <p>So you could call the draw function as always</p>
 
-'''javascript
+```javascript
   var chart = new google.visualization.BarChart(document.getElementById("chart_div"));
   chart.draw(data,
         {
@@ -54,7 +56,7 @@
             'font-size':12
           }
         });
-'''
+```
 
 <h3>Samples</h3>
 <ul>
