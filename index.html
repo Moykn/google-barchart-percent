@@ -7,7 +7,7 @@
     <meta name="description" content="Google-barchart-percent : Adding a percentage label to google BarChart." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <link rel="stylesheet" href="highlight.js/styles/github.css">
+    <link rel="stylesheet" href="highlight.js/styles/ir_black.css">
     <script type="text/javascript" src="highlight.js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -43,7 +43,8 @@
 <p>So you could call the draw function as always</p>
 
 <pre><code class="javascript">
-  var chart = new google.visualization.BarChart(document.getElementById("chart_div"));
+  var chart = 
+      new google.visualization.BarChart(document.getElementById("chart_div"));
   chart.draw(data,
         {
           'title':"Yearly Coffee Consumption by Country",
