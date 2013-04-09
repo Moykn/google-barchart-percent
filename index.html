@@ -39,7 +39,26 @@
 &ltscript type="text/javascript" src="BarChart.js"&gt&lt/script&gt
 </code>
 </pre>
-        <p></p>
+        <p>So you could call the draw function as always</p>
+
+<pre lang="javascript">
+<code>
+var chart = new google.visualization.BarChart($("#chart_div").get(0));
+chart.draw(data,
+      {
+        'title':"Yearly Coffee Consumption by Country",
+        'width':600, 
+        'height':400,
+        'vAxis': {title: "Year"},
+        'hAxis': {title: "Cups"},    
+        'labelStyle':{ //customize labels
+          'font-family':"Segoe UI light", 
+          'fill':'black', 
+          'font-size':12
+        }
+      });
+</code>
+</pre>
 
 <h3>Samples</h3>
 
