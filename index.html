@@ -43,21 +43,31 @@
 <p>So you could call the draw function as always</p>
 
 <pre><code class="javascript">
-  var chart = 
-      new google.visualization.BarChart(document.getElementById("chart_div"));
-  chart.draw(data,
-        {
-          'title':"Yearly Coffee Consumption by Country",
-          'width':600, 
-          'height':400,
-          'vAxis': {title: "Year"},
-          'hAxis': {title: "Cups"},    
-          'labelStyle':{ //customize labels
-            'font-family':"Segoe UI light", 
-            'fill':'black', 
-            'font-size':12
-          }
-        });
+ function drawChart(){
+  // Create and populate the data table.
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Austria', 'Bulgaria', 'Denmark', 'Greece'],
+          ['2003',  1336060,    400361,    1001582,   997974],
+          ['2004',  1538156,    366849,    1119450,   941795],
+          ['2005',  1576579,    440514,    993360,    930593]
+        ]);
+		
+    	var chart = new google.visualization.BarChart($("#chart_div").get(0));
+    	chart.draw(data,
+            {
+              'title':"Yearly Coffee Consumption by Country",
+              'width':600, 
+              'height':400,
+              'vAxis': {title: "Year"},
+              'hAxis': {title: "Cups"}, 	 
+              'labelStyle':{
+      					'font-family':"Segoe UI light", 
+      					'fill':'black', 
+      					'font-size':12
+			        }
+			}
+        );
+	}
 </code></pre>
 
 <h3>Samples</h3>
