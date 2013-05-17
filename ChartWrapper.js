@@ -8,9 +8,8 @@ google._setOnLoadCallback = google.setOnLoadCallback;
 	  					var __chart__ = this;
 	  					__chart__._draw(arguments);
 	  					
-						var __table__ = __chart__.getDataTable().D;
-						
-						var __bars__ = $("svg > g:nth(2) > g > g:nth(1) > rect",$("#"+ __chart__.dg.id));
+						var __table__ = __chart__.getDataTable().K;
+						var __bars__ = $("svg > g:nth(2) > g > g:nth(1) > rect",$("#"+ __chart__.vg.id));
 						for (var ri = 0,rLen = __table__.length -1 ; ri <= rLen; ri++) {
 								var row = __table__[ri].c;
 								var _total = 0;
