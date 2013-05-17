@@ -5,11 +5,18 @@ google._setOnLoadCallback = google.setOnLoadCallback;
 	      	google.visualization.ChartWrapper.prototype.draw; 
 	      		google.visualization.ChartWrapper.prototype.draw = 
 	  				function() {
-	  					var __chart__ = this;
+	  					var __chart__ = this, _div;
+	  					for (var property in __chart__) {
+						    if (__chart__.hasOwnProperty(property)) {
+						        if(__chart__[property] && __chart__[property].nodeType){
+						        	_div = __chart__[property]
+						        }
+						    }
+						}
 	  					__chart__._draw(arguments);
 	  					
-						var __table__ = __chart__.getDataTable().K;
-						var __bars__ = $("svg > g:nth(2) > g > g:nth(1) > rect",$("#"+ __chart__.vg.id));
+						var __table__ = __chart__.getDataTable().toPOJO().rows;
+						var __bars__ = $("svg > g:nth(2) > g > g:nth(1) > rect",$("#"+ _div.id));
 						for (var ri = 0,rLen = __table__.length -1 ; ri <= rLen; ri++) {
 								var row = __table__[ri].c;
 								var _total = 0;

@@ -1,21 +1,35 @@
+document.createElementNS = document.createElementNS ? document.createElementNS : function (name, type) {
+	return document.createElement("v:shape");
+}
+document.createTextNode = document.createTextNode ? document.createTextNode : function (text) {
+	var elemm = document.createElement('rvml:textpath');
+	elemm.innerText = text;
+}
+
 google._setOnLoadCallback = google.setOnLoadCallback;
   google.setOnLoadCallback = function(callback){
   		function __overrides_chart_draw(){
 		//BarChart Doesn't have a getDataTable Method, so i'm creating one.
-		google.visualization.BarChart.prototype.getDataTable = function(){return this.pa.Sc};
+		google.visualization.BarChart.prototype.getDataTable = function(){return this.ga.cd};
 		google.visualization.BarChart.prototype.__chart_options = {};
   		google.visualization.BarChart.prototype.getOptions = function(){return this.__chart_options};
 	      google.visualization.BarChart.prototype._draw = 
 	      	google.visualization.BarChart.prototype.draw; 
 	      		google.visualization.BarChart.prototype.draw = 
 	  				function (a, c) {
-	  					var __chart__ = this;
+						var __chart__ = this, _div;
+	  					for (var property in __chart__) {
+						    if (__chart__.hasOwnProperty(property)) {
+						        if(__chart__[property] && __chart__[property].nodeType){
+						        	_div = __chart__[property]
+						        }
+						    }
+						}
 	  					__chart__.__chart_options = $.extend({}, c);
 	  					__chart__._draw(a, c);
-	  					
-						var __table__ = __chart__.getDataTable().D;
+						var __table__ = a.toPOJO().rows;
 						
-						var __bars__ = $("svg > g:nth(2) > g > g:nth(1) > rect",$("#"+ __chart__.cd.id));
+						var __bars__ = $("svg > g:nth(2) > g > g:nth(1) > rect",$("#"+ _div.id));
 						for (var ri = 0,rLen = __table__.length -1 ; ri <= rLen; ri++) {
 								var row = __table__[ri].c;
 								var _total = 0;
