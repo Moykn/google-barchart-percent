@@ -1,11 +1,3 @@
-document.createElementNS = document.createElementNS ? document.createElementNS : function (name, type) {
-	return document.createElement("v:shape");
-}
-document.createTextNode = document.createTextNode ? document.createTextNode : function (text) {
-	var elemm = document.createElement('rvml:textpath');
-	elemm.innerText = text;
-}
-
 google._setOnLoadCallback = google.setOnLoadCallback;
   google.setOnLoadCallback = function(callback){
   		function __overrides_chart_draw(){
