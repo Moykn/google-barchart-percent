@@ -3,16 +3,15 @@
 <head>
 <title></title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="svg2vml.js"></script>
 <script type="text/javascript" src="//www.google.com/jsapi"></script>
 <script type="text/javascript" src="BarChart.js"></script>
-<script type="text/javascript" src="svg-uncompressed.js"></script>
 <script type="text/javascript">
 var chart;
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
 
 function drawChart(){
-  debugger;
 	// Create and populate the data table.
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Austria', 'Bulgaria', 'Denmark', 'Greece'],
@@ -22,20 +21,21 @@ function drawChart(){
         ]);
 		
     	var chart = new google.visualization.BarChart($("#chart_div").get(0));
-        	chart.draw(data,
-                {
-                  'title':"Yearly Coffee Consumption by Country",
-                  'width':600, 
-                  'height':400,
-                  'vAxis': {title: "Year"},
-                  'hAxis': {title: "Cups"}, 	 
-                  'labelStyle':{
-          					'font-family':"Segoe UI light", 
-          					'fill':'black', 
-          					'font-size':12
-    			       }
-    			});
-}
+    	chart.draw(data,
+            {
+              'title':"Yearly Coffee Consumption by Country",
+              'width':600, 
+              'height':400,
+              'vAxis': {title: "Year"},
+              'hAxis': {title: "Cups"}, 	 
+              'labelStyle':{
+					'font-family':"Segoe UI light", 
+					'fill':'black', 
+					'font-size':12
+			 }
+			}
+        );
+	}
 	</script>
 </head>
 <body>
