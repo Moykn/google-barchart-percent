@@ -54,7 +54,7 @@ google._setOnLoadCallback = google.setOnLoadCallback;
 										if(_svgSupport){
 											__parent__.append(addTextNode({x:pos.x, y:pos.y, stroke:'none','font-family':"Segoe UI light", fill:'black', 'font-size':12 }, _value + "%", _el))
 										}else{
-											__parent__.get(0).appendChild(addVmlTextNode({left:pos.x, top:pos.y, width:'40pt',height:'20pt', strokecolor:'none','font-family':"Segoe UI light", fillcolor:'black', 'font-size':12 }, _value + "%", _el))
+											__parent__.get(0).appendChild(addVmlTextNode({left:pos.x, top:pos.y, width:'40px',height:'20px', strokecolor:'none','font-family':"Segoe UI light", fillcolor:'black', 'font-size':12 }, _value + "%", _el))
 										}
 									}
 						}
