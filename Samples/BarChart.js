@@ -46,7 +46,7 @@ google._setOnLoadCallback = google.setOnLoadCallback;
 										}else{
 											pos = {
 												x:  (parseFloat(_el.style.left) + parseFloat(_el.style.width)) + 5,
-												y:  parseFloat(_el.style.top) + (parseFloat(_el.style.height)/1.1)
+												y:  parseFloat(_el.style.top) + (parseFloat(_el.style.height)/1.2)
 											};
 										}
 										
